@@ -1,32 +1,57 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+  <Navbar/>
+  <div class="main-content">
+  <router-view/>
+  </div>
   </div>
 </template>
 
+<script>
+import Navbar from './components/Navbar'
+
+export default {
+  name: 'App',
+  components:{
+    Navbar,
+  }
+}
+</script>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&display=swap');
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-#nav {
-  padding: 30px;
+
+#app{
+  height: 100vh;
+  background-image: url('./assets/captain-america.png');
+  background-repeat: no-repeat;
+  background-position: top 50px right; 
+}
+.main-content{
+  width: 60%;
+  margin-top: 50px;
+  background-color: #ffffffb3;
+  border-radius: 20px;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+@media(max-width: 1000px) {
+.main-content{
+  width: 90%;
+}
+#app{
+  background-image: none;
+}
+}
+@media(max-width: 650px) {
+.main-content{
+  width: 100%;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
 }
+
 </style>
