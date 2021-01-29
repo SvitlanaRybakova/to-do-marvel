@@ -38,7 +38,8 @@
 </template>
 
 <script>
-let lastChoosenImgURL = require('../assets/heroes/temporary-avatar.png');
+let lastChoosenImgURL = require("../assets/heroes/temporary-avatar.png");
+
 export default {
   data() {
     return {
@@ -90,14 +91,17 @@ form {
   width: 100px;
   text-align: center;
 }
+
 img {
   width: 100%;
   border-radius: 50%;
 }
+
 .flex-wrapper {
   display: flex;
   justify-content: space-between;
 }
+
 input {
   width: 100%;
   height: 25px;
@@ -117,12 +121,14 @@ p {
   margin-top: 50px;
   text-align: center;
 }
+
 button {
   border-radius: 6px;
   border: 1px solid gray;
   cursor: pointer;
   padding: 6px 24px;
 }
+
 .btn-add {
   box-shadow: inset 0px 1px 0px 0px #bee2f9;
   background: linear-gradient(to bottom, rgba(0, 128, 0, 0.582) 5%, green 100%);
@@ -133,9 +139,11 @@ button {
   text-shadow: 0px 1px 0px #7cacde;
   margin-left: 40px;
 }
+
 .btn-add:hover {
   background: linear-gradient(to bottom, green 5%, rgba(0, 128, 0, 0.582) 100%);
 }
+
 span {
   color: red;
 }

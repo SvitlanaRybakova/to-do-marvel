@@ -56,6 +56,7 @@
         <div class="btn btn-low-priority" @click="moveDown"></div>
       </div>
     </div>
+    <!-- btn-main -->
   </div>
 </template>
 
@@ -111,12 +112,14 @@ img {
   border-radius: 50%;
   width: 100%;
 }
+
 figcaption {
   overflow: hidden;
   text-align: center;
   font-style: italic;
   height: 40px;
 }
+
 .date {
   font-family: "Noto Sans JP", sans-serif;
   font-size: 0.8rem;
@@ -168,12 +171,15 @@ figcaption {
 .btn-high-priority {
   background-image: url("../assets/icons/arrow-up.svg");
 }
+
 .btn-low-priority {
   background-image: url("../assets/icons/arrow-down.svg");
 }
+
 .btn-edit {
   background-image: url("../assets/icons/edit.svg");
 }
+
 .btn-save {
   background-image: url("../assets/icons/content-save.svg");
 }
@@ -184,10 +190,12 @@ input {
   padding-left: 10px;
   border: 1px solid rgb(180, 177, 177);
 }
+
 span {
   display: block;
   height: 30px;
 }
+
 .done {
   text-decoration: line-through;
 }
@@ -195,24 +203,28 @@ span {
 @media (max-width: 1000px) {
   .main-wrapper {
     flex-direction: column;
-
     align-items: center;
     width: 80%;
   }
+
   .date {
     text-align: center;
     padding-bottom: 50px;
   }
+
   .btn-wrapper {
     width: 75%;
   }
+
   .btn-priority {
     align-self: center;
   }
+
   input {
     width: 100%;
     height: 30px;
   }
+
   .btn-main {
     width: 20%;
   }

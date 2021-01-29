@@ -57,8 +57,8 @@ export default new Vuex.Store({
           inEditMode: false,
         }
         ]
-
   },
+
   mutations: {
     createNewTodo(state, todoItem) {
       todoItem.date = new Date().toISOString().substr(0, 10),
@@ -71,7 +71,6 @@ export default new Vuex.Store({
     saveData(state) {
       window.localStorage.setItem('todo', JSON.stringify(state.todosCollection));
     },
-
 
     removeToDo(state, todo) {
       findAndDeleteElement(state, todo)

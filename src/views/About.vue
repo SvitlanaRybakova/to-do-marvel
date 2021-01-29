@@ -42,11 +42,13 @@
   color: #524b4b;
   padding: 20px;
 }
+
 h1 {
   text-align: center;
   color: brown;
   margin-bottom: 40px;
 }
+
 p {
   margin-bottom: 30px;
 }

@@ -25,13 +25,13 @@ export default {
       task: null,
       date: null,
       loading: true,
-    };
+    }
   },
   computed: {
     todosCollection() {
       return this.$store.state.todosCollection;
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -41,6 +41,7 @@ h1 {
   text-align: center;
   color: #ffff;
 }
+
 .page-title {
   width: 100%;
   background-color: #524b50;
