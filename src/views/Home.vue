@@ -8,28 +8,23 @@
       :key="id"
       :item="todoItem"
     />
-    
   </div>
-
 </template>
 
 <script>
-// @ is an alias to /src
 import TodoItem from "../components/TodoItem";
-
 
 export default {
   name: "Home",
   components: {
     TodoItem,
-    
   },
   data() {
     return {
       creator: null,
       task: null,
       date: null,
-      loading: true
+      loading: true,
     };
   },
   computed: {
@@ -39,9 +34,10 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 h1 {
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   text-align: center;
   color: #ffff;
 }

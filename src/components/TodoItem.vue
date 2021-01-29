@@ -45,7 +45,7 @@
           class="btn btn-done"
           type="checkbox"
           v-on:click="item.completed = !item.completed"
-          @click="sendToEnd"
+          @click="isDone"
         ></div>
 
         <div class="btn btn-delete" @click="removeTask"></div>
@@ -69,8 +69,8 @@ export default {
     removeTask() {
       this.$store.commit("removeToDo", this.item);
     },
-    sendToEnd() {
-      this.$store.commit("sendToDoToEnd", this.item);
+    isDone() {
+      this.$store.commit("isDone", this.item);
     },
     moveUp() {
       this.$store.commit("moveUp", this.item);
@@ -78,11 +78,11 @@ export default {
     moveDown() {
       this.$store.commit("moveDown", this.item);
     },
-    editItem(item) {
-      item.inEditMode = true;
+    editItem() {
+      this.$store.commit("editItem", this.item);
     },
-    editItemComplete(item) {
-      item.inEditMode = false;
+    editItemComplete() {
+      this.$store.commit("editItemComplete", this.item);
     },
   },
 };
@@ -112,6 +112,7 @@ img {
   width: 100%;
 }
 figcaption {
+  overflow: hidden;
   text-align: center;
   font-style: italic;
   height: 40px;
@@ -125,7 +126,7 @@ figcaption {
 .task {
   width: 80%;
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
   font-weight: bold;
   text-align: center;
   align-self: center;
@@ -159,22 +160,22 @@ figcaption {
   background-color: #a1dffb5e;
 }
 .btn-done {
-  background-image: url("../assets/check.svg");
+  background-image: url("../assets/icons/check.svg");
 }
 .btn-delete {
-  background-image: url("../assets/delete.svg");
+  background-image: url("../assets/icons/delete.svg");
 }
 .btn-high-priority {
-  background-image: url("../assets/arrow-up.svg");
+  background-image: url("../assets/icons/arrow-up.svg");
 }
 .btn-low-priority {
-  background-image: url("../assets/arrow-down.svg");
+  background-image: url("../assets/icons/arrow-down.svg");
 }
 .btn-edit {
-  background-image: url("../assets/edit.svg");
+  background-image: url("../assets/icons/edit.svg");
 }
 .btn-save {
-  background-image: url("../assets/content-save.svg");
+  background-image: url("../assets/icons/content-save.svg");
 }
 
 input {
@@ -190,7 +191,6 @@ span {
 .done {
   text-decoration: line-through;
 }
-
 
 @media (max-width: 1000px) {
   .main-wrapper {

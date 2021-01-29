@@ -44,38 +44,35 @@ export default {
       errors: [],
       creator: "",
       todo: "",
-      img: require("../assets/heroes/pngegg.png"),
+      img: require("../assets/heroes/temporary-avatar.png"),
       completed: false,
     };
   },
   methods: {
     createTodo() {
       this.errors = [];
-      if(this.creator && this.todo){
+      if (this.creator && this.todo) {
         let todoItem = {
-        creator: this.creator,
-        task: this.todo,
-        img: this.img,
-        completed: this.completed,
-      };
-      this.$store.commit("createNewTodo", todoItem);
-      this.creator = null;
-      this.todo = null;
-      this.$router.push('/');
-      
-      
-      }else {
-        if(!this.creator)this.errors.push('Name required');
-        if(!this.todo)this.errors.push('TO-DO item required')
+          creator: this.creator,
+          task: this.todo,
+          img: this.img,
+          completed: this.completed,
+        };
+        this.$store.commit("createNewTodo", todoItem);
+        this.creator = null;
+        this.todo = null;
+        this.$router.push("/");
+      } else {
+        if (!this.creator) this.errors.push("Name required");
+        if (!this.todo) this.errors.push("TO-DO item required");
       }
-      
     },
-    changeImg(){
-      const imgLink = prompt('Put the image address');
-      if(imgLink){
+    changeImg() {
+      const imgLink = prompt("Put the image address");
+      if (imgLink) {
         this.img = imgLink;
       }
-    }
+    },
   },
 };
 </script>
@@ -114,11 +111,11 @@ p {
   margin-bottom: 20px;
 }
 
-.btns{
+.btns {
   margin-top: 50px;
   text-align: center;
 }
-button{
+button {
   border-radius: 6px;
   border: 1px solid gray;
   cursor: pointer;
@@ -126,7 +123,7 @@ button{
 }
 .btn-add {
   box-shadow: inset 0px 1px 0px 0px #bee2f9;
-  background:linear-gradient(to bottom, rgba(0, 128, 0, 0.582) 5%, green 100%);
+  background: linear-gradient(to bottom, rgba(0, 128, 0, 0.582) 5%, green 100%);
   border: 1px solid green;
   display: inline-block;
   color: #ffff;
@@ -135,19 +132,18 @@ button{
   margin-left: 40px;
 }
 .btn-add:hover {
-  background: linear-gradient(to bottom, green 5%,  rgba(0, 128, 0, 0.582) 100%);
-  
+  background: linear-gradient(to bottom, green 5%, rgba(0, 128, 0, 0.582) 100%);
 }
-span{
+span {
   color: red;
 }
 
-@media (max-width: 600px){
-  .flex-wrapper{
+@media (max-width: 600px) {
+  .flex-wrapper {
     display: block;
   }
-  
-  .img-wrapper{
+
+  .img-wrapper {
     margin: 0 auto;
     margin-bottom: 50px;
   }

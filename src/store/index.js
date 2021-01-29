@@ -5,14 +5,14 @@ Vue.use(Vuex)
 
 let todoList = window.localStorage.getItem('todo');
 
-let deleteElement = function (state, todo) {
+let findAndDeleteElement = function (state, todo) {
   let index = state.todosCollection.indexOf(todo);
   let removedItem = state.todosCollection.splice(index, 1)[0];
   return [removedItem, index]
 };
 
 let moveElement = function (state, todo, isMoveUp) {
-  let elementWithIndex = deleteElement(state, todo);
+  let elementWithIndex = findAndDeleteElement(state, todo);
   let index = elementWithIndex[1];
   let elementToMove = elementWithIndex[0];
   let indexToMove = isMoveUp ? index - 1 : index + 1;
@@ -74,17 +74,17 @@ export default new Vuex.Store({
 
 
     removeToDo(state, todo) {
-      deleteElement(state, todo)
+      findAndDeleteElement(state, todo)
       this.commit('saveData');
     },
 
-    sendToDoToEnd(state, todo) {
-
+    isDone(state, todo) {
       if (todo.completed) {
-        state.todosCollection.push(deleteElement(state, todo)[0])
+        state.todosCollection.push(findAndDeleteElement(state, todo)[0])
       } else {
-        state.todosCollection.unshift(deleteElement(state, todo)[0])
+        state.todosCollection.unshift(findAndDeleteElement(state, todo)[0])
       }
+      this.commit('saveData');
     },
 
     moveUp(state, todo) {
@@ -93,6 +93,18 @@ export default new Vuex.Store({
 
     moveDown(state, todo) {
       moveElement(state, todo);
+    },
+
+    editItem(state, todo) {
+      let index = state.todosCollection.indexOf(todo);
+      state.todosCollection[index].inEditMode = true;
+    },
+
+    editItemComplete(state, todo) {
+      let index = state.todosCollection.indexOf(todo);
+      state.todosCollection[index].inEditMode = false;
+      state.todosCollection[index].task = todo.task;
+      this.commit('saveData');
     },
   },
   actions: {

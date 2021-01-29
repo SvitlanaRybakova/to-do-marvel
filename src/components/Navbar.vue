@@ -1,9 +1,9 @@
 <template>
-  <div class="navbar ">
+  <div class="navbar">
     <div class="container">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/create">Create</router-link>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> |
+      <router-link to="/create">Create</router-link>
     </div>
   </div>
 </template>
@@ -14,10 +14,8 @@ export default {};
 
 <style scoped>
 .navbar {
-  /* background: lightgray; */
   padding: 0.6rem 0 0.6rem;
 }
- 
 
 a {
   color: navy;
@@ -29,14 +27,7 @@ a {
 }
 
 a:hover {
-  color: #c33124;
+  color: brown;
 }
-
 </style>
 
-<style>
-.container{
-  width: 90%;
-  margin: 0 auto;
-} 
-</style>
