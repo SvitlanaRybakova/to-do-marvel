@@ -38,13 +38,14 @@
 </template>
 
 <script>
+let lastChoosenImgURL = require('../assets/heroes/temporary-avatar.png');
 export default {
   data() {
     return {
       errors: [],
       creator: "",
       todo: "",
-      img: require("../assets/heroes/temporary-avatar.png"),
+      img: lastChoosenImgURL,
       completed: false,
     };
   },
@@ -68,9 +69,10 @@ export default {
       }
     },
     changeImg() {
-      const imgLink = prompt("Put the image address");
-      if (imgLink) {
-        this.img = imgLink;
+      let imgURL = prompt("Put the image address");
+      if (imgURL) {
+        lastChoosenImgURL = imgURL;
+        this.img = lastChoosenImgURL;
       }
     },
   },

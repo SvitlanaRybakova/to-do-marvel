@@ -33,7 +33,7 @@ export default new Vuex.Store({
           inEditMode: false,
         },
         {
-          creator: 'Superman',
+          creator: 'Super man',
           task: 'Save the World!!!',
           date: '2021/01/23',
           img: require('../assets/heroes/superman.png'),
