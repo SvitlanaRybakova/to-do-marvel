@@ -62,8 +62,8 @@ export default new Vuex.Store({
   mutations: {
     createNewTodo(state, todoItem) {
       todoItem.date = new Date().toISOString().substr(0, 10),
-      todoItem.inEditMode = false,
-      state.todosCollection.unshift(todoItem);
+        todoItem.inEditMode = false,
+        state.todosCollection.unshift(todoItem);
 
       this.commit('saveData');
     },
@@ -79,10 +79,10 @@ export default new Vuex.Store({
     },
 
     sendToDoToEnd(state, todo) {
-      
-      if(todo.completed){
+
+      if (todo.completed) {
         state.todosCollection.push(deleteElement(state, todo)[0])
-      } else{
+      } else {
         state.todosCollection.unshift(deleteElement(state, todo)[0])
       }
     },
@@ -94,13 +94,6 @@ export default new Vuex.Store({
     moveDown(state, todo) {
       moveElement(state, todo);
     },
-    editItem(state, inEditMode){
-console.log(state);
-console.log(inEditMode);
-inEditMode = true
-console.log(inEditMode);
-
-    }
   },
   actions: {
   },

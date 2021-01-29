@@ -1,7 +1,8 @@
 <template>
   <div id="app">
   <Navbar/>
-  <div class="main-content">
+  <div class="app-img"></div>
+  <div class="app-content">
   <router-view/>
   </div>
   </div>
@@ -32,7 +33,7 @@ export default {
   background-repeat: no-repeat;
   background-position: top 50px right; 
 }
-.main-content{
+.app-content{
   width: 60%;
   margin-top: 50px;
   background-color: #ffffffb3;
@@ -40,15 +41,15 @@ export default {
 }
 
 @media(max-width: 1000px) {
-.main-content{
+.app-content{
   width: 90%;
 }
-#app{
+/* #app{
   background-image: none;
-}
+} */
 }
 @media(max-width: 650px) {
-.main-content{
+.app-content{
   width: 100%;
 }
 

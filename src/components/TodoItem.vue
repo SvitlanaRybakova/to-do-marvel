@@ -7,43 +7,53 @@
           <figcaption>{{ item.creator }}</figcaption>
         </figure>
       </div>
+      <!-- img-wrapper -->
       <div class="task">
         <p class="date">{{ item.date }}</p>
-        <p class="" v-bind:class="{ done: item.completed }">
-          {{ item.task }}
-        </p>
-        <!-- !!!!!!! !!!!!!!!!!!!!!!!!!!!!!!!!!-->
-        <span v-show="!item.inEditMode">{{ item.task }}</span>
+        <span
+          v-bind:class="{ done: item.completed }"
+          v-show="!item.inEditMode"
+          >{{ item.task }}</span
+        >
         <input
           v-bind:placeholder="item.task"
           v-show="item.inEditMode"
           v-model="item.task"
         />
-        <!-- !!!!!!!!!!! -->
-        <button
+      </div>
+      <!-- task -->
+    </div>
+    <!-- main-wrapper -->
+
+    <div class="btn-main">
+      <div class="btn-wrapper">
+        <div
+          class="btn btn-edit"
           type="button"
-          class="btn btn-info"
           v-show="!item.inEditMode"
           @click="editItem(item)"
-        >
-          <i class="fa fa-edit"></i> Edit
-        </button>
-      </div>
-    </div>
+        ></div>
 
-    <div class="btn-wrapper">
-      <div class="btn-main">
         <div
-          class="btn-done"
+          class="btn btn-save"
+          type="button"
+          v-show="item.inEditMode"
+          @click="editItemComplete(item)"
+        ></div>
+
+        <div
+          class="btn btn-done"
           type="checkbox"
           v-on:click="item.completed = !item.completed"
           @click="sendToEnd"
         ></div>
-        <div class="btn-delete" @click="removeTask"></div>
+
+        <div class="btn btn-delete" @click="removeTask"></div>
       </div>
+
       <div class="btn-priority">
-        <div class="btn-high-priority" @click="moveUp"></div>
-        <div class="btn-low-priority" @click="moveDown"></div>
+        <div class="btn btn-high-priority" @click="moveUp"></div>
+        <div class="btn btn-low-priority" @click="moveDown"></div>
       </div>
     </div>
   </div>
@@ -68,9 +78,6 @@ export default {
     moveDown() {
       this.$store.commit("moveDown", this.item);
     },
-    // editItem(){
-    //   this.$store.commit("editItem", this.item.inEditMode);
-    // }
     editItem(item) {
       item.inEditMode = true;
     },
@@ -107,6 +114,7 @@ img {
 figcaption {
   text-align: center;
   font-style: italic;
+  height: 40px;
 }
 .date {
   font-family: "Noto Sans JP", sans-serif;
@@ -117,26 +125,27 @@ figcaption {
 .task {
   width: 80%;
   height: 100%;
+  overflow: hidden;
   font-weight: bold;
   text-align: center;
   align-self: center;
   font-family: "Noto Sans JP", sans-serif;
 }
+
 .btn-wrapper {
-  width: 15%;
+  width: 60%;
   display: flex;
   justify-content: space-between;
 }
+
 .btn-main {
-  width: 50%;
+  width: 30%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.btn-delete,
-.btn-high-priority,
-.btn-low-priority,
-.btn-done {
+
+.btn {
   border-radius: 50px;
   padding: 10px;
   width: 30px;
@@ -146,10 +155,7 @@ figcaption {
   cursor: pointer;
 }
 
-.btn-delete:hover,
-.btn-high-priority:hover,
-.btn-low-priority:hover,
-.btn-done:hover {
+.btn:hover {
   background-color: #a1dffb5e;
 }
 .btn-done {
@@ -161,40 +167,54 @@ figcaption {
 .btn-high-priority {
   background-image: url("../assets/arrow-up.svg");
 }
-
 .btn-low-priority {
   background-image: url("../assets/arrow-down.svg");
 }
+.btn-edit {
+  background-image: url("../assets/edit.svg");
+}
+.btn-save {
+  background-image: url("../assets/content-save.svg");
+}
+
 input {
-  width: 18px;
-  height: 18px;
+  width: 50%;
+  height: 30px;
+  padding-left: 10px;
+  border: 1px solid rgb(180, 177, 177);
+}
+span {
+  display: block;
+  height: 30px;
 }
 .done {
   text-decoration: line-through;
 }
 
-@media (max-width: 1000px) {
-  .main-wrapper {
-    width: 100%;
-  }
-}
 
 @media (max-width: 1000px) {
   .main-wrapper {
     flex-direction: column;
 
     align-items: center;
-    width: 50%;
+    width: 80%;
   }
   .date {
     text-align: center;
     padding-bottom: 50px;
   }
   .btn-wrapper {
-    width: 40%;
+    width: 75%;
   }
   .btn-priority {
     align-self: center;
+  }
+  input {
+    width: 100%;
+    height: 30px;
+  }
+  .btn-main {
+    width: 20%;
   }
 }
 </style>
